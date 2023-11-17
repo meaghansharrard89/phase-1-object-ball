@@ -200,4 +200,22 @@ for (const team in gameData) {
      return array;
 }
 
-console.log(playerNumbers("Brooklyn Nets"));
+//Loop through the teams in the game data (home and away). For each team, loop through the players. Check if the player's name matches the playerName parameter. If there's a match, assign the player's stats object to playerStatsObj. After the loops, return playerStats array. Here's an updated version of your code with the changes mentioned above:
+
+function playerStats(playerName){
+    let playerStats = [];
+    let gameData = gameObject();
+
+for (const team in gameData) {
+    const players = gameData[team].players;
+    for (const player in players) {
+        if (player === playerName) {
+            playerStats.push(players[player]);
+        }
+    }
+}
+
+return playerStats;
+}
+
+console.log(playerStats("Ben Gordon"));
